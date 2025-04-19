@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <html lang="vie">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> mơ hoa </title>
+        <link rel="stylesheet" href="trình bày.css">
+    </head>
+   
+
+   <thơ>
+    <div class="title">mơ hoa</div>
+   </thơ>
+
+
+    <script>
+        const desc = document.getElementById("desc")
+        const name = document.getElementById("name")
+        const api_url = "https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1";
+        
+        async function NEWCARD(url) {
+            const response = await fetch(url);
+            var data = await response.json();
+            console.log(data.cards[0]);
+            console.log(data.cards[0].name);
+            desc.innerHTML= (data.cards[0]).meaning_up;
+            huhu.innerHTML=(data.cards[0]).name
+    }   
+    
+    NEWCARD(api_url);
+
+    </script>
+    </body>
+</html>

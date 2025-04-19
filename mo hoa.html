@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài Thơ</title>
+ 
+ <style>
+    @font-face {
+      font-family: 'Declaration';
+      src: url('FZ SG-USDeclaration.ttf') format('truetype');
+    }
+  
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Declaration', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 5vw;
+    }
+  
+    .poem {
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      white-space: pre-wrap;
+    }
+  
+    .highlight {
+      color: white;
+      transition: color 1.5s ease-in-out;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="poem" id="poem">
+    Em đi tìm anh trong miền nhớ miền quên  
+    Vượt ngày hoang vu và những đêm không ngủ  
+    Hỏi thần thoại loài người thuở ong bướm cũ  
+    Có thấy một đôi mắt ngàn sao  
+    Hay thất thần giữa những thảo nguyên   
+    Gọi mặt trời bên kia bờ cát trắng ?  
+    
+    Đại dương mong manh  
+    Và em vô tận   
+    Trầm tích mình ngủ kỹ tận hang sâu  
+    
+    Em đi tìm anh ở quá khứ vị lai  
+    Em đi tìm ở chốn sai và chốn đúng  
+    Ở ranh giới người địa đường dương thể  
+    Hỏi những người lưu lạc chốn xa xăm   
+    
+    Em đi tìm   
+    và tìm đến trăm năm  
+    Đã lật qua từng trang sách cổ  
+    Đã hỏi mai sau  
+    Đã nhiều lần đổ máu,  
+    
+    Nay xin quay về bến bờ yên lặng   
+    Dưới chân người   
+    Những khổ sở cuộc đời tan biến hết  
+    Một hạt bụi nguyên sơ
+  </div>
+
+  <script>
+    const poemEl = document.getElementById('poem');
+    const chars = poemEl.textContent.split('');
+    poemEl.innerHTML = '';
+
+    chars.forEach(char => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.classList.add('highlight');
+      poemEl.appendChild(span);
+    });
+
+    function animateRandomChars() {
+      const spans = document.querySelectorAll('.highlight');
+      const count = 10;
+      for (let i = 0; i < count; i++) {
+        const index = Math.floor(Math.random() * spans.length);
+        const charSpan = spans[index];
+
+        charSpan.style.color = '#8B0000'; // đỏ thẫm
+
+        setTimeout(() => {
+          charSpan.style.color = 'black';
+          setTimeout(() => {
+            charSpan.style.color = 'white';
+          }, 1000);
+        }, 1000);
+      }
+    }
+
+    setInterval(animateRandomChars, 300);
+  </script>
+  
+</body>
+<a href="http://127.0.0.1:3000/Users/duyenkhanh/Documents/mơ hoa - thơ/menu.html" id="homeBtn">⌂ </a>
+<style>
+    #homeBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-family: 'Cactus Classical Serif', serif;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+  
+    #homeBtn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+  
+  
+  
+</html>
